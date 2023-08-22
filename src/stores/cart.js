@@ -12,7 +12,11 @@ export const useCartStore = defineStore('cart', () => {
     items.value.splice(index, 1)
   }
 
-  return { items, add, remove }
+  function removeAll(){
+    items.value = []
+  }
+
+  return { items, add, remove, removeAll }
 
   
 })

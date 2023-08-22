@@ -22,7 +22,7 @@ const qty = ref(0)
 
 const store = useCartStore()
 
-const add = () => {
+const addMe = () => {
   store.add({
     name: props.nameProduct,
     price: props.priceProduct,
@@ -46,7 +46,7 @@ const add = () => {
       <input type="number" :value="qty"/>
       <button @click="qty++">+</button>
       <button @click="qty--">-</button>
-      <button :disabled="qty <= 0" @click="add">
+      <button :disabled="qty <= 0" @click="addMe">
         <IconCart class="icon"></IconCart>
       </button>
     </div>

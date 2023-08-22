@@ -3,6 +3,7 @@ import { useCartStore } from '../stores/cart';
 
 import CartItem from '../components/CartItem.vue';
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 const store = useCartStore()
 
 const total = computed(() => {
@@ -14,6 +15,13 @@ const total = computed(() => {
 
   return t
 })
+
+const router = useRouter()
+
+const removeAllandGo = () => {
+  store.removeAll()
+  router.push('/')
+}
 
 </script>
 
@@ -30,6 +38,10 @@ const total = computed(() => {
   </div>
   <!-- {{ JSON.stringify(store.items) }} -->
   <div>{{ total }}</div>
+  <div>
+    <button>Берем!</button>
+    <button @click="removeAllandGo">Пожалуй, откажусь</button>
+  </div>
 </template>
 
 <style>
