@@ -8,5 +8,11 @@ export const useCartStore = defineStore('cart', () => {
     items.value.push(item)
   }
 
-  return { items, add }
+  function remove(index) {
+    items.value.splice(index, 1)
+  }
+
+  return { items, add, remove }
+
+  
 })

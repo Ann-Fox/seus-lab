@@ -2,7 +2,18 @@
 import { useCartStore } from '../stores/cart';
 
 import CartItem from '../components/CartItem.vue';
+import { computed } from 'vue';
 const store = useCartStore()
+
+const total = computed(() => {
+  let t = 0
+
+  store.items.forEach((item) => {
+    t += Math.round(item.price * item.qty * 100) / 100
+  })
+
+  return t
+})
 
 </script>
 
@@ -15,9 +26,10 @@ const store = useCartStore()
   </div>
 
   <div class="cart__items">
-    <CartItem v-for="item in store.items" :key="item.name" :name-product="item.name" :price-product="item.price" :qty-product="item.qty"></CartItem>
+    <CartItem v-for="(item,index) in store.items" :key="item.name" :name-product="item.name" :price-product="item.price" :qty-product="item.qty" :index-product="index"></CartItem>
   </div>
   <!-- {{ JSON.stringify(store.items) }} -->
+  <div>{{ total }}</div>
 </template>
 
 <style>

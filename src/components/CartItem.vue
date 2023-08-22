@@ -1,23 +1,34 @@
 <script setup>
+import { useCartStore } from '../stores/cart';
 
 defineProps({
   nameProduct: {
     type: String,
     required: true
-
   },
+
   priceProduct: {
     type: Number,
     required: true
-
   },
 
   qtyProduct: {
     type: Number,
     required: true
+  },
 
+    indexProduct: {
+    type: Number,
+    required: true
   }
 })
+const store = useCartStore()
+
+// const remove = () => {
+//   store.remove({
+    
+//   })
+// }
 </script>
 
 <template>
@@ -25,8 +36,8 @@ defineProps({
         <div>{{ nameProduct }}</div> 
         <div>{{ priceProduct }}</div>
         <div>{{ qtyProduct }}</div>
-        <div>{{ priceProduct*qtyProduct }} 
-            <button>&times;</button>
+        <div>{{ Math.round(priceProduct*qtyProduct*100)/100 }} 
+            <button @click="() => store.remove(indexProduct)">&times;</button>
         </div>
     </div>
       
