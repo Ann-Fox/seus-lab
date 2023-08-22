@@ -1,5 +1,28 @@
 <script setup>
-import HelloWorld from '../components/HelloWorld.vue';
+import CatalogItem from '../components/CatalogItem.vue';
+
+const items = [
+  {
+    name: 'Продукт 1',
+    price: 333.33,
+  },
+  {
+    name: 'Продукт 2',
+    price: 444.44,
+  },
+  {
+    name: 'Продукт 3',
+    price: 555.55,
+  },
+  {
+    name: 'Продукт 4',
+    price: 222.22,
+  },
+  {
+    name: 'Продукт 5',
+    price: 111.11,
+  },
+]
 </script>
 
 <template>
@@ -10,10 +33,7 @@ import HelloWorld from '../components/HelloWorld.vue';
 
   </div>
   <div class="catalog__items">
-    <HelloWorld></HelloWorld>
-    <HelloWorld></HelloWorld>
-    <HelloWorld msg="Another MSG!!!!!!!"></HelloWorld>
-    <HelloWorld msg="Это мсг!!!!!"></HelloWorld>
+    <CatalogItem v-for="item in items" :key="item.name" :name-product="item.name" :price-product="item.price"></CatalogItem>
   </div>
 </template>
 
