@@ -42,8 +42,11 @@ const showAndGo = () => {
     <CartItem v-for="(item,index) in store.items" :key="item.name" :name-product="item.name" :price-product="item.price" :qty-product="item.qty" :index-product="index"></CartItem>
   </div>
   <!-- {{ JSON.stringify(store.items) }} -->
-  <div>{{ total }}</div>
-  <div>
+  <div class="cart__total">
+    <p>Итого</p>
+    <p>{{ total }}</p>
+  </div>
+  <div class="cart__button">
     <button @click="showAndGo">Берем!</button>
     <button @click="removeAllandGo">Пожалуй, откажусь</button>
   </div>
@@ -56,5 +59,36 @@ grid-template-columns: 2fr repeat(2, 1fr) 2fr;
 grid-template-rows: 1fr;
 grid-column-gap: 40px;
 grid-row-gap: 0px;
+}
+
+.cart__total {
+    display: flex;
+    margin: 20px 115px 50px 345px;
+    justify-content: space-between;
+    border-top: 1px solid #fff;
+}
+
+
+.cart__button {
+  margin-right: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.cart__button button {
+    color: #00BD7E;
+    background: none;
+    padding: 10px 40px;
+    border: 1px solid #00BD7E;
+    cursor: pointer;
+}
+
+.cart__button button:hover {
+    color: #181818;
+    background: #00BD7E;
+    border: 1px solid #00BD7E;
+    cursor: pointer;
 }
 </style>

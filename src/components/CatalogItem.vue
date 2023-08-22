@@ -64,13 +64,17 @@ grid-row-gap: 50px;
 
 .name-price {
   display: grid;
-grid-template-columns: 2fr 1fr;
-grid-column-gap: 40px;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 40px;
 }
 
 .action {
   display: flex;
-    justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.action input {
+  max-width: 50px;
 }
 
 .icon {

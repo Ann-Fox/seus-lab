@@ -36,7 +36,8 @@ const store = useCartStore()
         <div>{{ nameProduct }}</div> 
         <div>{{ priceProduct }}</div>
         <div>{{ qtyProduct }}</div>
-        <div>{{ Math.round(priceProduct*qtyProduct*100)/100 }} 
+        <div>
+            {{ Math.round(priceProduct*qtyProduct*100)/100 }} 
             <button @click="() => store.remove(indexProduct)">&times;</button>
         </div>
     </div>

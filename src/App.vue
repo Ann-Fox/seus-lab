@@ -51,6 +51,7 @@ grid-column-gap: 50px;
 
 .main__products {
   border: 1px solid snow;
+  padding: 20px;
 }
 
 </style> 
