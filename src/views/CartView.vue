@@ -23,6 +23,11 @@ const removeAllandGo = () => {
   router.push('/')
 }
 
+const showAndGo = () => {
+  console.log(JSON.stringify(store.items)); 
+  router.push('/')
+}
+
 </script>
 
 <template>
@@ -39,7 +44,7 @@ const removeAllandGo = () => {
   <!-- {{ JSON.stringify(store.items) }} -->
   <div>{{ total }}</div>
   <div>
-    <button>Берем!</button>
+    <button @click="showAndGo">Берем!</button>
     <button @click="removeAllandGo">Пожалуй, откажусь</button>
   </div>
 </template>
