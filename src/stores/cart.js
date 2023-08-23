@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useCartStore = defineStore('cart', () => {
   const items = ref([])
-  
+
   function add(item) {
     items.value.push(item)
   }
@@ -12,11 +12,9 @@ export const useCartStore = defineStore('cart', () => {
     items.value.splice(index, 1)
   }
 
-  function removeAll(){
+  function removeAll() {
     items.value = []
   }
 
   return { items, add, remove, removeAll }
-
-  
 })

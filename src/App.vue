@@ -1,13 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { useCartStore } from './stores/cart';
+import { useCartStore } from './stores/cart'
 
 const store = useCartStore()
-
 </script>
 
 <template>
-
   <section class="main">
     <div class="main__nav">
       <RouterLink to="/">Каталог</RouterLink>
@@ -29,19 +27,17 @@ const store = useCartStore()
       </nav>
     </div>
   </header> -->
-
 </template>
 
 <style scoped>
-
 header {
   margin-bottom: 50px;
 }
 
 .main {
-display: grid;
-grid-template-columns: 1fr 4fr;
-grid-column-gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 50px;
 }
 
 .main__nav {
@@ -54,5 +50,4 @@ grid-column-gap: 50px;
   border: 1px solid snow;
   padding: 20px;
 }
-
-</style> 
+</style>

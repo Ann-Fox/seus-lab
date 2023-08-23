@@ -1,27 +1,24 @@
 <script setup>
-import { ref } from 'vue';
-import IconCalc from './icons/IconCalc.vue';
-import IconCart from './icons/IconCart.vue';
-import { useCartStore } from '../stores/cart';
-
+import { ref } from 'vue'
+import IconCalc from './icons/IconCalc.vue'
+import IconCart from './icons/IconCart.vue'
+import { useCartStore } from '../stores/cart'
 
 const props = defineProps({
   nameProduct: {
     type: String,
     required: true
-
   },
   priceProduct: {
     type: Number,
     required: true
-
-  },
+  }
   // showModal: {
   //   type: Boolean,
   //   required: true
   // }
 })
-const showModal = ref(false) 
+const showModal = ref(false)
 const qty = ref(0)
 
 const store = useCartStore()
@@ -34,13 +31,12 @@ const addMe = () => {
   })
   qty.value = 0
 }
-
 </script>
 
-<template >
+<template>
   <div class="catalog__item">
     <div class="name-price">
-      <div>{{ nameProduct }}</div> 
+      <div>{{ nameProduct }}</div>
       <div>{{ priceProduct }}</div>
     </div>
     <div class="action">
@@ -59,7 +55,7 @@ const addMe = () => {
           <button @click="qty += 3">3</button>
         </div>
       </button>
-      <input type="number" v-model="qty"/>
+      <input type="number" v-model="qty" />
       <button @click="qty++">+</button>
       <button @click="qty--">-</button>
       <button :disabled="qty <= 0" @click="addMe">
@@ -67,15 +63,14 @@ const addMe = () => {
       </button>
     </div>
   </div>
- 
 </template>
 
 <style scoped>
 .catalog__item {
-display: grid;
-grid-template-columns: 3fr 2fr;
-grid-column-gap: 40px;
-grid-row-gap: 50px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 50px;
 }
 
 .name-price {
@@ -94,25 +89,25 @@ grid-row-gap: 50px;
 
 .action__calc__keyboard {
   position: absolute;
-  background: #00BD7E;
+  background: #00bd7e;
   padding: 15px;
   z-index: 1000;
-  
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(4, 1fr);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 .action__calc__keyboard button {
   font-size: 30px;
   padding: 10px;
   cursor: pointer;
-
 }
-.keyboard_del { grid-area: 4 / 1 / 5 / 4; }
+.keyboard_del {
+  grid-area: 4 / 1 / 5 / 4;
+}
 
 .action input {
   max-width: 50px;
@@ -121,5 +116,4 @@ grid-row-gap: 10px;
 .icon {
   width: 20px;
 }
-
 </style>
