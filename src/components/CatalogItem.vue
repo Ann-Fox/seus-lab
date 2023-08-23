@@ -37,7 +37,7 @@ const addMe = () => {
 
 </script>
 
-<template>
+<template >
   <div class="catalog__item">
     <div class="name-price">
       <div>{{ nameProduct }}</div> 
@@ -48,15 +48,15 @@ const addMe = () => {
         <IconCalc @click="showModal = true" class="icon"></IconCalc>
         <div class="action__calc__keyboard" v-if="showModal" @close="showModal = false">
           <button class="keyboard_del" @click="showModal = false">delete</button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
+          <button @click="qty += 7">7</button>
+          <button @click="qty += 8">8</button>
+          <button @click="qty += 9">9</button>
+          <button @click="qty += 4">4</button>
+          <button @click="qty += 5">5</button>
+          <button @click="qty += 6">6</button>
+          <button @click="qty += 1">1</button>
+          <button @click="qty += 2">2</button>
+          <button @click="qty += 3">3</button>
         </div>
       </button>
       <input type="number" :value="qty"/>
@@ -109,6 +109,7 @@ grid-row-gap: 10px;
 .action__calc__keyboard button {
   font-size: 30px;
   padding: 10px;
+  cursor: pointer;
 
 }
 .keyboard_del { grid-area: 4 / 1 / 5 / 4; }
