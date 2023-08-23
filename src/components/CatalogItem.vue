@@ -59,7 +59,7 @@ const addMe = () => {
           <button @click="qty += 3">3</button>
         </div>
       </button>
-      <input type="number" :value="qty"/>
+      <input type="number" v-model="qty"/>
       <button @click="qty++">+</button>
       <button @click="qty--">-</button>
       <button :disabled="qty <= 0" @click="addMe">
