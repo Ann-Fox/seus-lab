@@ -15,9 +15,13 @@ const props = defineProps({
     type: Number,
     required: true
 
-  }
+  },
+  // showModal: {
+  //   type: Boolean,
+  //   required: true
+  // }
 })
-
+const showModal = ref(false) 
 const qty = ref(0)
 
 const store = useCartStore()
@@ -41,9 +45,9 @@ const addMe = () => {
     </div>
     <div class="action">
       <button class="action__calc">
-        <IconCalc class="icon"></IconCalc>
-        <div class="action__calc__keyboard">
-          <button class="keyboard_del">delete</button>
+        <IconCalc @click="showModal = true" class="icon"></IconCalc>
+        <div class="action__calc__keyboard" v-if="showModal" @close="showModal = false">
+          <button class="keyboard_del" @click="showModal = false">delete</button>
           <button>7</button>
           <button>8</button>
           <button>9</button>
@@ -91,15 +95,22 @@ grid-row-gap: 50px;
 .action__calc__keyboard {
   position: absolute;
   background: #00BD7E;
-  padding: 5px;
+  padding: 15px;
+  z-index: 1000;
   
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(4, 1fr);
-grid-column-gap: 5px;
-grid-row-gap: 5px;
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+
 }
 
+.action__calc__keyboard button {
+  font-size: 30px;
+  padding: 10px;
+
+}
 .keyboard_del { grid-area: 4 / 1 / 5 / 4; }
 
 .action input {

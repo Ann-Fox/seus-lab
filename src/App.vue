@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useCartStore } from './stores/cart';
 
 const store = useCartStore()
+
 </script>
 
 <template>
