@@ -41,9 +41,9 @@ const addMe = () => {
     </div>
     <div class="action">
       <button class="action__calc">
-        <IconCalc @click="showModal=true" class="icon"></IconCalc>
+        <IconCalc @click="showModal = !showModal" class="icon"></IconCalc>
         <div class="action__calc__keyboard" v-if="showModal" >
-          <button class="keyboard_del" @click="showModal=false">delete</button>
+          <button class="keyboard_del" @click="qty = Math.trunc(qty/10)">delete</button>
           <button @click="qty = qty*10+7">7</button>
           <button @click="qty = qty*10+8">8</button>
           <button @click="qty = qty*10+9">9</button>
