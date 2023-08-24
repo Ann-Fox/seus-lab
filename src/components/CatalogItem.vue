@@ -41,18 +41,18 @@ const addMe = () => {
     </div>
     <div class="action">
       <button class="action__calc">
-        <IconCalc @click="showModal = true" class="icon"></IconCalc>
-        <div class="action__calc__keyboard" v-if="showModal" @close="showModal = false">
-          <button class="keyboard_del" @click="showModal = false">delete</button>
-          <button @click="qty += 7">7</button>
-          <button @click="qty += 8">8</button>
-          <button @click="qty += 9">9</button>
-          <button @click="qty += 4">4</button>
-          <button @click="qty += 5">5</button>
-          <button @click="qty += 6">6</button>
-          <button @click="qty += 1">1</button>
-          <button @click="qty += 2">2</button>
-          <button @click="qty += 3">3</button>
+        <IconCalc @click="showModal=true" class="icon"></IconCalc>
+        <div class="action__calc__keyboard" v-if="showModal" >
+          <button class="keyboard_del" @click="showModal=false">delete</button>
+          <button @click="qty = qty*10+7">7</button>
+          <button @click="qty = qty*10+8">8</button>
+          <button @click="qty = qty*10+9">9</button>
+          <button @click="qty = qty*10+4">4</button>
+          <button @click="qty = qty*10+5">5</button>
+          <button @click="qty = qty*10+6">6</button>
+          <button @click="qty = qty*10+1">1</button>
+          <button @click="qty = qty*10+2">2</button>
+          <button @click="qty = qty*10+3">3</button>
         </div>
       </button>
       <input type="number" v-model="qty" />
